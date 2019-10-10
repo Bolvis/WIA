@@ -1,0 +1,143 @@
+<html>
+<head>
+<title>Strona 1 WIA5</title>
+<link rel="stylesheet">
+</head>
+<body>
+    <style>
+        .panel {
+            width: 220px;
+            height: 280px;
+            background-color: #ccc;
+            position: absolute;
+            top: 100px;
+            left: 0px;
+            transition: All 1s ease;
+            transform: translate(-200px);
+        }
+
+            .panel:hover {
+                transform: translate(0px);
+            }
+            body {
+background-color:#222244;}
+
+header {
+	background-color:#444466;
+	color: white;
+	text-align: center;
+	width: 800px;
+	height: 100px;
+	margin: 0 auto;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	font-size: 35px;
+	font-style: italic;
+}
+section{
+	background-color : white;
+	width : 800px;
+	height : 300px;
+	margin : 0 auto;
+
+}
+
+h1{
+	background-image: url('wia6.png');
+	background-repeat: no-repeat;
+}
+
+footer{
+	background-color: #664443;
+	width: 800px;
+	height: 17px;
+	text-align: center;
+	margin: 0 auto;
+	color: white;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	font-size: 8;
+	padding-top: 5px;
+}
+
+.lewy{
+	width: 30%;
+	height: 100%;
+	float: left;
+}	
+.prawy{
+	width: 70%;
+	height: 100%;
+	float: left;
+}	
+
+.link{
+	border-bottom: 1px dotted #8f6f70;
+	color: #8f6f70;
+	width: 80%;
+	padding-left: 23px;
+}
+
+.lorem{
+	padding: 10px;
+}
+
+    </style>
+    <script>
+       
+        function setTextColor()
+        {
+            var newColor = document.getElementById("kolorTekstu").value;
+            document.getElementById("lewy").style.color = newColor;
+            document.getElementById("Home").style.color = newColor;
+            document.getElementById("About").style.color = newColor;
+            document.getElementById("Interesting Things").style.color = newColor;
+            document.getElementById("Boring Things").style.color = newColor;
+            document.getElementById("Contact").style.color = newColor;
+            document.getElementById("Header").style.color = newColor;
+            document.getElementById("Prawy").style.color = newColor;
+            document.getElementById("Lorem").style.color = newColor;
+            document.getElementById("Footer").style.color = newColor;
+        }
+        
+    </script>
+    <header>
+        <h1 id="Header">My Website!</h1>
+    </header>
+    <section>
+        <div class="lewy" id="lewy">
+            <nav >
+                <div id="Home" class="link">Home</div>
+                <div id="About" class="link">About</div>
+                <div id="Interesting Things" class="link">Interesting Things</div>
+                <div id="Boring Things" class="link">Boring Things</div>
+                <div id="Contact" class="link">Contact</div>
+            </nav>
+            <div id="Lorem" class="lorem">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam.
+            </div>
+        </div>
+        <div id="Prawy" class="prawy">
+            <h2>Lorem ipsum</h2>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est. Etiam sit amet lectus quis est congue mollis. Phasellus congue lacus eget neque. Phasellus ornare, ante vitae consectetuer consequat, purus sapien ultricies dolor, et mollis pede metus eget nisi. Praesent sodales velit quis augue. Cras suscipit, urna at aliquam rhoncus, urna quam viverra nisi, in interdum massa nibh nec erat.
+        </div>
+        <div class="panel">
+            Kolor tekstu: <input type="color" id="kolorTekstu" onchange="setTextColor()"><br>
+            Wielkosc liter: <select id="wielkoscLiter">
+                <option value="10px">10px </option>
+                <option value="12px">12px </option>
+                <option value="14px">14px </option>
+            </select>
+            Czerwony:<input type="range" name="colorR" min="0" max="255">
+            Zielony:<input type="range" name="colorG" min="0" max="255">
+            Niebieski:<input type="range" name="colorB" min="0" max="255">
+        </div>
+    </section>
+    <footer id="Footer">
+        Foobar Inc.
+    </footer>
+
+
+
+</body>
+</html>
