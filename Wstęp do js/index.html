@@ -3,7 +3,7 @@
 <title>Strona 1 WIA5</title>
 <link rel="stylesheet">
 </head>
-<body>
+<body id="sekcja">
     <style>
         .panel {
             width: 220px;
@@ -21,7 +21,9 @@
             }
             body {
 background-color:#222244;}
-
+        body {
+            border:0px d;
+        }
 header {
 	background-color:#444466;
 	color: white;
@@ -39,6 +41,7 @@ section{
 	width : 800px;
 	height : 300px;
 	margin : 0 auto;
+    border:0px solid black;
 
 }
 
@@ -99,6 +102,46 @@ footer{
             document.getElementById("Lorem").style.color = newColor;
             document.getElementById("Footer").style.color = newColor;
         }
+
+        function setTextSize()
+        {
+            var textSize = document.getElementById("wielkoscLiter").value;
+            document.getElementById("lewy").style.fontSize = textSize;
+            document.getElementById("Home").style.fontSize = textSize;
+            document.getElementById("About").style.fontSize = textSize;
+            document.getElementById("Interesting Things").style.fontSize = textSize;
+            document.getElementById("Boring Things").style.fontSize = textSize;
+            document.getElementById("Contact").style.fontSize = textSize;
+            document.getElementById("Prawy").style.fontSize = textSize;
+            document.getElementById("Lorem").style.fontSize = textSize;
+            document.getElementById("Footer").style.fontSize = textSize;
+        }
+
+        function setDivColor()
+        {
+            var R = document.getElementById("red").value;
+            var G = document.getElementById("green").value;
+            var B = document.getElementById("blue").value;
+            var id = document.getElementById("divSel").value;
+            
+            
+            if (id!=("all")) {
+                document.getElementById(id).style.backgroundColor = "#"+R+G+B;                
+            } else
+            {
+             document.getElementById("lewy").style.backgroundColor = "#"+R+G+B;
+             document.getElementById("Header").style.backgroundColor = "#"+R+G+B;
+             document.getElementById("Prawy").style.backgroundColor = "#"+R+G+B;
+             document.getElementById("Lorem").style.backgroundColor = "#"+R+G+B;
+             document.getElementById("Footer").style.backgroundColor = "#"+R+G+B;
+            }
+
+        }
+
+        function setBorder()
+        {
+            document.getElementById("sekcja").style.border = document.getElementById("borderChange").value + "px " + document.getElementById("borderSel").value + " black";
+        }
         
     </script>
     <header>
@@ -123,14 +166,40 @@ footer{
         </div>
         <div class="panel">
             Kolor tekstu: <input type="color" id="kolorTekstu" onchange="setTextColor()"><br>
-            Wielkosc liter: <select id="wielkoscLiter">
+            Wielkosc liter: <select id="wielkoscLiter" onchange="setTextSize()">
                 <option value="10px">10px </option>
                 <option value="12px">12px </option>
                 <option value="14px">14px </option>
+                <option value="16px">16px </option>
+                <option value="20px">20px </option>
+                <option value="26px">26px </option>
+                <option value="32px">32px </option>
             </select>
-            Czerwony:<input type="range" name="colorR" min="0" max="255">
-            Zielony:<input type="range" name="colorG" min="0" max="255">
-            Niebieski:<input type="range" name="colorB" min="0" max="255">
+            <div>          </div>
+            <select id="divSel">
+                <option value="lewy">lewy</option>
+                <option value="Prawy">prawy</option>
+                <option value="Lorem">lorem</option>
+                <option value="Footer">footer</option>
+                <option value="Header">header</option>
+                <option value="all">all</option>
+            </select>
+            <div>          </div>
+            Czerwony:<input id="red" type="range" name="colorR" min="0" max="FG">
+            Zielony:<input id="green" type="range" name="colorG" min="0" max="FG">
+            Niebieski:<input id="blue" type="range" name="colorB" min="0" max="FG">
+            <button id="setDivColorButton" onclick="setDivColor()">Set Color</button>
+            <div>          </div>
+            Border Weigth:<input id="borderChange" type="range" onchange="setBorder()" name="borderWeigth" min="0" max="20" />
+            <div>          </div>
+            <select id="borderSel" onchange="setBorder()">
+                <option value="solid">solid</option>
+                <option value="dotted">dotted</option>
+                <option value="ridge">ridge</option>
+                <option value="double">double</option>
+                <option value="hidden">hidden</option>
+            </select>
+
         </div>
     </section>
     <footer id="Footer">
