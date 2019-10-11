@@ -59,7 +59,7 @@ footer{
 	color: white;
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
-	font-size: 8;
+	font-size: 8px;
 	padding-top: 5px;
 }
 
@@ -142,6 +142,26 @@ footer{
         {
             document.getElementById("sekcja").style.border = document.getElementById("borderChange").value + "px " + document.getElementById("borderSel").value + " black";
         }
+
+        function changeImg1()
+        {
+            document.getElementById("Header").style.backgroundImage = "URl('" + document.getElementById("imgSel1").value + "')";
+        }
+        function changeImg2()
+        {
+            document.getElementById("Header").style.backgroundImage = "URl('" + document.getElementById("imgSel2").value + "')";
+        }
+        function changeImg3()
+        {
+            document.getElementById("Header").style.backgroundImage ="URl('"+ document.getElementById("imgSel3").value+"')";
+        }
+
+        function colorAlert()
+        {
+            var id = document.getElementById("colorSel").value;
+            alert("kolor to:" + document.getElementById(id).style.backgroundColor.toString());
+          
+        }
         
     </script>
     <header>
@@ -199,7 +219,18 @@ footer{
                 <option value="double">double</option>
                 <option value="hidden">hidden</option>
             </select>
-
+            <div>          </div>
+            <button id="imgSel1" onclick="changeImg1()" value="wia62.png">Pierwszy obrazek</button>
+            <button id="imgSel2" onclick="changeImg2()" value="wia6.png">Drugi obrazek</button>
+            <button id="imgSel3" onclick="changeImg3()" value="wia.png">Trzeci obrazek</button>
+            <div>          </div>
+            <select id="colorSel" onchange="colorAlert()">
+                <option value="lewy">lewy</option>
+                <option value="Prawy">prawy</option>
+                <option value="Lorem">lorem</option>
+                <option value="Footer">footer</option>
+                <option value="Header">header</option>
+            </select>
         </div>
     </section>
     <footer id="Footer">
