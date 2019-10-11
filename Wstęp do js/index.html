@@ -42,6 +42,7 @@ section{
 	height : 300px;
 	margin : 0 auto;
     border:0px solid black;
+    font-size: 16px;
 
 }
 
@@ -67,11 +68,13 @@ footer{
 	width: 30%;
 	height: 100%;
 	float: left;
+    font-size:16px;
 }	
 .prawy{
 	width: 70%;
 	height: 100%;
 	float: left;
+    font-size:16px;
 }	
 
 .link{
@@ -83,38 +86,49 @@ footer{
 
 .lorem{
 	padding: 10px;
+    font-size:16px;
 }
 
     </style>
     <script>
+
        
+
         function setTextColor()
         {
             var newColor = document.getElementById("kolorTekstu").value;
-            document.getElementById("lewy").style.color = newColor;
-            document.getElementById("Home").style.color = newColor;
-            document.getElementById("About").style.color = newColor;
-            document.getElementById("Interesting Things").style.color = newColor;
-            document.getElementById("Boring Things").style.color = newColor;
-            document.getElementById("Contact").style.color = newColor;
-            document.getElementById("Header").style.color = newColor;
-            document.getElementById("Prawy").style.color = newColor;
-            document.getElementById("Lorem").style.color = newColor;
-            document.getElementById("Footer").style.color = newColor;
+            var id = document.getElementById("divSel").value;
+
+            if (id != "all") { document.getElementById(id).style.color = newColor; } else {
+                document.getElementById("lewy").style.color = newColor;
+                document.getElementById("Home").style.color = newColor;
+                document.getElementById("About").style.color = newColor;
+                document.getElementById("Interesting Things").style.color = newColor;
+                document.getElementById("Boring Things").style.color = newColor;
+                document.getElementById("Contact").style.color = newColor;
+                document.getElementById("Header").style.color = newColor;
+                document.getElementById("Prawy").style.color = newColor;
+                document.getElementById("Lorem").style.color = newColor;
+                document.getElementById("Footer").style.color = newColor;
+            }
         }
 
         function setTextSize()
         {
             var textSize = document.getElementById("wielkoscLiter").value;
-            document.getElementById("lewy").style.fontSize = textSize;
-            document.getElementById("Home").style.fontSize = textSize;
-            document.getElementById("About").style.fontSize = textSize;
-            document.getElementById("Interesting Things").style.fontSize = textSize;
-            document.getElementById("Boring Things").style.fontSize = textSize;
-            document.getElementById("Contact").style.fontSize = textSize;
-            document.getElementById("Prawy").style.fontSize = textSize;
-            document.getElementById("Lorem").style.fontSize = textSize;
-            document.getElementById("Footer").style.fontSize = textSize;
+            var id = document.getElementById("divSel").value;
+
+            if (id != "all") { document.getElementById(id).style.fontSize = textSize; } else {
+                document.getElementById("lewy").style.fontSize = textSize;
+                document.getElementById("Home").style.fontSize = textSize;
+                document.getElementById("About").style.fontSize = textSize;
+                document.getElementById("Interesting Things").style.fontSize = textSize;
+                document.getElementById("Boring Things").style.fontSize = textSize;
+                document.getElementById("Contact").style.fontSize = textSize;
+                document.getElementById("Prawy").style.fontSize = textSize;
+                document.getElementById("Lorem").style.fontSize = textSize;
+                document.getElementById("Footer").style.fontSize = textSize;
+            }
         }
 
         function setDivColor()
@@ -162,6 +176,16 @@ footer{
             alert("kolor to:" + document.getElementById(id).style.backgroundColor.toString());
           
         }
+
+        function newLink()
+        {
+            document.getElementById("myLink").href = document.getElementById("newLink").value;
+        }
+
+        function setPanel()
+        {
+
+        }
         
     </script>
     <header>
@@ -196,7 +220,7 @@ footer{
                 <option value="32px">32px </option>
             </select>
             <div>          </div>
-            <select id="divSel">
+            <select id="divSel" onchange="setPanel()">
                 <option value="lewy">lewy</option>
                 <option value="Prawy">prawy</option>
                 <option value="Lorem">lorem</option>
@@ -231,9 +255,11 @@ footer{
                 <option value="Footer">footer</option>
                 <option value="Header">header</option>
             </select>
+            <input id="newLink" onchange="newLink()" />
         </div>
     </section>
     <footer id="Footer">
+        <a id="myLink" href="https://www.google.pl" target="_blank">link</a>
         Foobar Inc.
     </footer>
 
