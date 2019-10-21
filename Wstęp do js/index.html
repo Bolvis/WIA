@@ -19,83 +19,86 @@
             .panel:hover {
                 transform: translate(0px);
             }
-            body {
-background-color:#222244;}
+
         body {
-            border:0px;
+            background-color: #222244;
         }
-header {
-	background-color:#444466;
-	color: white;
-	text-align: center;
-	width: 800px;
-	height: 100px;
-	margin: 0 auto;
-	border-top-left-radius: 15px;
-	border-top-right-radius: 15px;
-	font-size: 35px;
-	font-style: italic;
-}
-section{
-	background-color : white;
-	width : 800px;
-	height : 300px;
-	margin : 0 auto;
-    border:0px solid black;
-    font-size: 16px;
 
-}
+        body {
+            border: 0px;
+        }
 
-h1{
-	background-image: url('wia6.png');
-	background-repeat: no-repeat;
-}
+        header {
+            background-color: #444466;
+            color: white;
+            text-align: center;
+            width: 800px;
+            height: 100px;
+            margin: 0 auto;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            font-size: 35px;
+            font-style: italic;
+        }
 
-footer{
-	background-color: #664443;
-	width: 800px;
-	height: 17px;
-	text-align: center;
-	margin: 0 auto;
-	color: #ffffff;
-	border-bottom-left-radius: 15px;
-	border-bottom-right-radius: 15px;
-	font-size: 8px;
-	padding-top: 5px;
-}
+        section {
+            background-color: white;
+            width: 800px;
+            height: 300px;
+            margin: 0 auto;
+            border: 0px solid black;
+            font-size: 16px;
+        }
 
-.lewy{
-	width: 30%;
-	height: 100%;
-	float: left;
-    font-size:16px;
-}	
-.prawy{
-	width: 70%;
-	height: 100%;
-	float: left;
-    font-size:16px;
-}	
+        h1 {
+            background-image: url('wia6.png');
+            background-repeat: no-repeat;
+        }
 
-.link{
-	border-bottom: 1px dotted #8f6f70;
-	color: #8f6f70;
-	width: 80%;
-	padding-left: 23px;
-}
+        footer {
+            background-color: #664443;
+            width: 800px;
+            height: 17px;
+            text-align: center;
+            margin: 0 auto;
+            color: #ffffff;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            font-size: 8px;
+            padding-top: 5px;
+        }
 
-.lorem{
-	padding: 10px;
-    font-size:16px;
-}
+        .lewy {
+            width: 30%;
+            height: 100%;
+            float: left;
+            font-size: 16px;
+        }
 
+        .prawy {
+            width: 70%;
+            height: 100%;
+            float: left;
+            font-size: 16px;
+        }
+
+        .link {
+            border-bottom: 1px dotted #8f6f70;
+            color: #8f6f70;
+            width: 80%;
+            padding-left: 23px;
+        }
+
+        .lorem {
+            padding: 10px;
+            font-size: 16px;
+        }
     </style>
     <script>
 
-       
 
-        function setTextColor()
-        {
+
+        function setTextColor() {
             var newColor = document.getElementById("kolorTekstu").value;
             var id = document.getElementById("divSel").value;
 
@@ -113,8 +116,7 @@ footer{
             }
         }
 
-        function setTextSize()
-        {
+        function setTextSize() {
             var textSize = document.getElementById("wielkoscLiter").value;
             var id = document.getElementById("divSel").value;
 
@@ -131,73 +133,63 @@ footer{
             }
         }
 
-        function setDivColor()
-        {
+        function setDivColor() {
             var R = document.getElementById("red").value;
             var G = document.getElementById("green").value;
             var B = document.getElementById("blue").value;
             var id = document.getElementById("divSel").value;
-            
-            
-            if (id!=("all")) {
-                document.getElementById(id).style.backgroundColor = "#"+R+G+B;                
-            } else
-            {
-             document.getElementById("lewy").style.backgroundColor = "#"+R+G+B;
-             document.getElementById("Header").style.backgroundColor = "#"+R+G+B;
-             document.getElementById("Prawy").style.backgroundColor = "#"+R+G+B;
-             document.getElementById("Lorem").style.backgroundColor = "#"+R+G+B;
-             document.getElementById("Footer").style.backgroundColor = "#"+R+G+B;
+
+
+            if (id != ("all")) {
+                document.getElementById(id).style.backgroundColor = "#" + R + G + B;
+            } else {
+                document.getElementById("lewy").style.backgroundColor = "#" + R + G + B;
+                document.getElementById("Header").style.backgroundColor = "#" + R + G + B;
+                document.getElementById("Prawy").style.backgroundColor = "#" + R + G + B;
+                document.getElementById("Lorem").style.backgroundColor = "#" + R + G + B;
+                document.getElementById("Footer").style.backgroundColor = "#" + R + G + B;
             }
 
         }
 
-        function setBorder()
-        {
+        function setBorder() {
             document.getElementById("sekcja").style.border = document.getElementById("borderChange").value + "px " + document.getElementById("borderSel").value + " black";
         }
 
-        function changeImg1()
-        {
+        function changeImg1() {
             document.getElementById("Header").style.backgroundImage = "URl('" + document.getElementById("imgSel1").value + "')";
         }
-        function changeImg2()
-        {
+        function changeImg2() {
             document.getElementById("Header").style.backgroundImage = "URl('" + document.getElementById("imgSel2").value + "')";
         }
-        function changeImg3()
-        {
-            document.getElementById("Header").style.backgroundImage ="URl('"+ document.getElementById("imgSel3").value+"')";
+        function changeImg3() {
+            document.getElementById("Header").style.backgroundImage = "URl('" + document.getElementById("imgSel3").value + "')";
         }
 
-        function colorAlert()
-        {
+        function colorAlert() {
             var id = document.getElementById("colorSel").value;
             alert("kolor to:" + document.getElementById(id).style.backgroundColor.toString());
-          
+
         }
 
-        function newLink()
-        {
+        function newLink() {
             document.getElementById("myLink").href = document.getElementById("newLink").value;
         }
 
-        function setPanel()
-        {
+        function setPanel() {
             var id = document.getElementById("divSel").value;
-            if (id != "all")
-            {
+            if (id != "all") {
                 document.getElementById("kolorTekstu").value = document.getElementById(id).style.color;
             }
         }
-        
+
     </script>
     <header>
         <h1 id="Header">My Website!</h1>
     </header>
     <section>
         <div class="lewy" id="lewy">
-            <nav >
+            <nav>
                 <div id="Home" class="link">Home</div>
                 <div id="About" class="link">About</div>
                 <div id="Interesting Things" class="link">Interesting Things</div>
@@ -211,7 +203,9 @@ footer{
         <div id="Prawy" class="prawy">
             <h2>Lorem ipsum</h2>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est. Etiam sit amet lectus quis est congue mollis. Phasellus congue lacus eget neque. Phasellus ornare, ante vitae consectetuer consequat, purus sapien ultricies dolor, et mollis pede metus eget nisi. Praesent sodales velit quis augue. Cras suscipit, urna at aliquam rhoncus, urna quam viverra nisi, in interdum massa nibh nec erat.
+            <br /><a id="myLink" href="https://www.google.pl" target="_blank">link</a>
         </div>
+
         <div class="panel">
             Kolor tekstu: <input type="color" id="kolorTekstu" onchange="setTextColor()" value="#ffffff"><br>
             Wielkosc liter: <select id="wielkoscLiter" onchange="setTextSize()">
@@ -233,9 +227,9 @@ footer{
                 <option value="all">all</option>
             </select>
             <div>          </div>
-            Czerwony:<input id="red" type="range" name="colorR" min="0" max="FG">
-            Zielony:<input id="green" type="range" name="colorG" min="0" max="FG">
-            Niebieski:<input id="blue" type="range" name="colorB" min="0" max="FG">
+            Czerwony:<input id="red" type="range" name="colorR" min="0" max="FF">
+            Zielony:<input id="green" type="range" name="colorG" min="0" max="FF">
+            Niebieski:<input id="blue" type="range" name="colorB" min="0" max="FF">
             <button id="setDivColorButton" onclick="setDivColor()">Set Color</button>
             <div>          </div>
             Border Weigth:<input id="borderChange" type="range" onchange="setBorder()" name="borderWeigth" min="0" max="20" />
@@ -262,8 +256,9 @@ footer{
             <input id="newLink" onchange="newLink()" />
         </div>
     </section>
+    
     <footer id="Footer">
-        <a id="myLink" href="https://www.google.pl" target="_blank">link</a>
+
         Foobar Inc.
     </footer>
 
