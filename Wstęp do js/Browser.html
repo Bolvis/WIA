@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Browser</title>
+</head>
+<script>
+    function sysInfo(){
+        document.getElementById("box").innerHTML="nazwa kodowa przegladarki "+
+            navigator.appCodeName+" "+navigator.appName+" "+navigator.appVersion+
+            " "+navigator.language+"<br><br>user Agent: "+navigator.userAgent+"Rozdzielczosc "+
+            screen.width+"x"+screen.height;
+    }
+
+    var myWindow;
+    function newWindow(){
+        myWindow=window.open('', '', 'width=200, height=100');
+    }
+
+    function toRight(){
+        myWindow.moveBy(20, 0);
+    }
+    function toLeft(){
+        myWindow.moveBy(-20, 0);
+    }
+    function closeWindow(){
+        myWindow.close();
+    }
+    function toTop()
+    {
+        myWindow.moveBy(0,-20);
+    }
+    function toBottom()
+    {
+        myWindow.moveBy(0,20);
+    }
+    function zadanie2()
+    {
+        document.getElementById("box").innerHTML=document.title+"</br>"+document.URL+"</br>"
+            +document.lastModified;
+    }
+    function startWindow () {
+        myWindow.URL="google.com";
+    }
+</script>
+
+<input type="button" onClick="sysInfo()" value="info">
+<input type="button" onClick="newWindow()" value="new window">
+<input type="button" onClick="toTop()" value="up">
+<input type="button" onClick="toBottom()" value="down">
+<input type="button" onClick="toLeft()" value="left">
+<input type="button" onClick="toRight()" value="right">
+<input type="button" onClick="closeWindow()" value="close">
+<input type="button" onClick="startWindow()" value="start page">
+<input type="button" onClick="blurWindow()" value="blur">
+<input type="button" onClick="zadanie2()" value="zadanie2">
+<div id="box"></div>
+
+
+</body>
+</html>
