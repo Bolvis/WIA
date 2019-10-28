@@ -1,0 +1,42 @@
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title> NewWindow> </title>
+</head>
+<body>
+
+<script>
+    function wprawo(){
+        window.moveBy(20, 0);
+    }
+    function wlewo(){
+        window.moveBy(-20, 0);
+    }
+    function wgore(){
+        window.moveBy(0, -20);
+    }
+    function wdol(){
+        window.moveBy(0, 20);
+    }
+    function zamknij(){
+        window.close();
+    }
+    function skryj(){
+        window.blur();
+    }
+    function startowa(){
+        window.history.go((history.length - 1) * -1);
+    }
+</script>
+
+<input type="button" onClick="wprawo()" value="w prawo">
+<input type="button" onClick="wlewo()" value="w lewo">
+<input type="button" onClick="wgore()" value="w gore">
+<input type="button" onClick="wdol()" value="w dol">
+<input type="button" onClick="zamknij()" value="zamknij">
+<input type="button" onClick="skryj()" value="skryj sie">
+<input type="button" onClick="startowa()" value="startowa">
+
+
+</body>
+</html>

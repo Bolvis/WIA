@@ -1,0 +1,136 @@
+<html>
+<head>
+
+    <meta name="Title" content="Wia3">
+    <meta http-equiv="last-modified" content="YYYY-MM-DD">
+    <title> Wia3 </title>
+</head>
+<body>
+
+<script>
+    function sysInfo(){
+        document.getElementById("box").innerHTML="nazwa kodowa przegladarki "+
+            navigator.appCodeName+" "+navigator.appName+" "+navigator.appVersion+
+            " "+navigator.language+"<br><br>user Agent: "+navigator.userAgent+"Rozdzielczosc "+
+            screen.width+"x"+screen.height;
+    }
+    function metaTags(){
+        {
+            document.getElementById("box").innerHTML=document.title+"</br>"+document.URL+"</br>"
+                +document.lastModified;
+        }
+    }
+    var mojeOkno;
+    function newWindow(){
+        mojeOkno=window.open('newWindow.html', '', 'width=300, height=300');
+        mojeOkno=focus();
+    }
+    function startPage(){
+        window.history.go((history.length - 1) * -1);
+    }
+    function check_e1(){
+        var number = document.getElementById("input_z1").value;
+        if (number > 5){ alert("Warunek spełniony!");}
+        else { alert("Błąd! Warunek niespełniony!");}
+    }
+    function check_e2(){
+        var dayofWeek = document.getElementById("input_z2").value;
+        switch (dayofWeek){
+            case "1":
+                alert("Poniedziałek | Monday | Montag");
+                break;
+            case "2":
+                alert("Wtorek | Tuesday | Dienstag");
+                break;
+            case "3":
+                alert("Środa | Wednesday | Mittwoch");
+                break;
+            case "4":
+                alert("Czwartek | Thursday | Donnerstag");
+                break;
+            case "5":
+                alert("Piątek | Friday | Freitag");
+                break;
+            case "6":
+                alert("Sobota | Saturday | Samstag");
+                break;
+            case "7":
+                alert("Niedziela | Sunday | Sonntag");
+                break;
+            default:
+                alert("Nie ma takiego dnia tygodnia!");
+                break;
+        }
+    }
+    function sprawdz_cb_zad3(){
+        if (document.getElementById("zad_3_cb").checked) { alert("Pole zaznaczone!");}
+        else {alert("Pole odznaczone!");}
+    }
+    function delta(){
+        var A = parseInt(document.getElementById("numberA").value, 10);
+        var B = parseInt(document.getElementById("numberB").value, 10);
+        var C = parseInt(document.getElementById("numberC").value, 10);
+        var Delta = Math.pow(B, 2) - 4 * A * C;
+        wynik.value = "DELTA: " + Delta + "\n";
+        if (Delta < 0){
+            wynik.value = wynik.value + "Delta ujemna! Brak rozwiązań!";
+        }
+        else {
+            var x1 = (-B - Math.sqrt(Delta)) / 2 * A;
+            var x2 = (-B + Math.sqrt(Delta)) / 2 * A;
+            wynik.value = wynik.value +  "x1: " + x1 + "\n";
+            wynik.value = wynik.value +  "x2: " + x2 + "\n";
+        }
+    }
+    function sum(){
+        var A = parseInt(document.getElementById("A").value, 10);
+        var B = parseInt(document.getElementById("B").value, 10);
+        var C = parseInt(document.getElementById("C").value, 10);
+        wynik2.value = "Suma: " + (A + B + C);
+        if ( A < 0 || B < 0 || C < 0) {
+            if (A<0){ var pole = "A";}
+            else if (B<0) {var pole = "B";}
+            else if (C<0) {var pole = "C";}
+            wynik2.value = wynik2.value + "Liczba z pola " + pole + " jest ujemna! \n";
+        }
+        if (A + B > C){
+            wynik2.value = wynik2.value + "a + b > c \n";
+        }
+        else if (A+B < C){
+            wynik2.value = wynik2.value + "a + b < c \n";
+        }
+        if (A==B && A==C && B==C){
+            wynik2.value = wynik2.value + "Liczby są takie same!";
+        }
+    }
+</script>
+
+<input type="button" onClick="sysInfo()" value="info">
+<input type="button" onClick="metaTags()" value="meta">
+<input type="button" onClick="newWindow()" value="nowe okno">
+<input type="button" onClick="startPage()" value="startowa">
+<div id="box"></div>
+
+<div class="z1">
+    <div>Age : <input type="text" name="input_z1" id="input_z1" value="5" />
+        <input type="button" name="button_z1" id="button_z1" value="Check number" onclick="check_e1()"/></div>
+</div>
+
+<div class="z2">
+    <div>Day : <input type="text" name="input_z2" id="input_z2" value="5" />
+        <input id="button_z2" name="button_z2" onclick="check_e2()" type="button" value="Check day"/></div>
+</div>
+
+Checkbox: <input type="checkbox" name="zad_3_cb" id="zad_3_cb" onClick="sprawdz_cb_zad3()"> </br>
+
+A: <input type="text" id="numberA" /> B: <input type="text" id="numberB" /> C: <input type="text" id="numberC" /> </br>
+<input type="textarea" style="width:400px;height:100px;" id="wynik" /> </br>
+<input type="button" onClick="delta()" value="Calculate" /></br>
+
+A: <input type="text" id="A" /> B: <input type="text" id="B" /> C: <input type="text" id="C" /> </br>
+<input type="textarea" style="width:400px;height:100px;" id="wynik2" /> </br>
+<input type="button" onClick="sum()" value="Run" />
+
+
+</body>
+</html>
