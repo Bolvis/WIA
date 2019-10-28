@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<script>
+<script src="main.js" type="text/javascript">
     function sysInfo(){
         document.getElementById("box").innerHTML="browser code name "+
             navigator.appCodeName+" "+navigator.appName+" "+navigator.appVersion+
@@ -33,35 +33,7 @@
         if (number > 5){ alert("Condition met!");}
         else { alert("Error! Condition not met!");}
     }
-    function check_e2(){
-        const dayOfWeek = document.getElementById("input_e2").value;
-        switch (dayOfWeek){
-            case "1":
-                alert("Poniedziałek | Monday | Montag");
-                break;
-            case "2":
-                alert("Wtorek | Tuesday | Dienstag");
-                break;
-            case "3":
-                alert("Środa | Wednesday | Mittwoch");
-                break;
-            case "4":
-                alert("Czwartek | Thursday | Donnerstag");
-                break;
-            case "5":
-                alert("Piątek | Friday | Freitag");
-                break;
-            case "6":
-                alert("Sobota | Saturday | Samstag");
-                break;
-            case "7":
-                alert("Niedziela | Sunday | Sonntag");
-                break;
-            default:
-                alert("There's no such day!");
-                break;
-        }
-    }
+
     function check_e3(){
         if (document.getElementById("check_e3").checked) { alert("Checkbox checked!");}
         else {alert("Checkbox unchecked!");}

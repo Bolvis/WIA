@@ -6,36 +6,36 @@
 <body>
 
 <script>
-    function wprawo(){
+    function toRight(){
         window.moveBy(20, 0);
     }
-    function wlewo(){
+    function toLeft(){
         window.moveBy(-20, 0);
     }
-    function wgore(){
+    function toTop(){
         window.moveBy(0, -20);
     }
-    function wdol(){
+    function toBottom(){
         window.moveBy(0, 20);
     }
-    function zamknij(){
+    function turnOff(){
         window.close();
     }
-    function skryj(){
+    function hide(){
         window.blur();
     }
-    function startowa(){
+    function startPage(){
         window.history.go((history.length - 1) * -1);
     }
 </script>
 
-<input type="button" onClick="wprawo()" value="w prawo">
-<input type="button" onClick="wlewo()" value="w lewo">
-<input type="button" onClick="wgore()" value="w gore">
-<input type="button" onClick="wdol()" value="w dol">
-<input type="button" onClick="zamknij()" value="zamknij">
-<input type="button" onClick="skryj()" value="skryj sie">
-<input type="button" onClick="startowa()" value="startowa">
+<input type="button" onClick="toLeft()" value="left">
+<input type="button" onClick="toRight()" value="right">
+<input type="button" onClick="toTop()" value="up">
+<input type="button" onClick="toBottom()" value="down">
+<input type="button" onClick="turnOff()" value="close">
+<input type="button" onClick="hide()" value="hide">
+<input type="button" onClick="startPage()" value="start page">
 
 
 </body>
