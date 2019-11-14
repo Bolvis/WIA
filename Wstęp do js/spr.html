@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sprawdzian 3B Dawid Stasiak</title>
+</head>
+<body>
+<style>
+    textarea
+    {
+        background-color:red;
+    }
+</style>
+<script>
+    function sysInfo(){
+        document.getElementById("box").innerHTML="browser code name "+
+            navigator.appCodeName+" "+navigator.appName+" "+navigator.appVersion+
+            " "+navigator.language;
+    }
+    function resolution() {
+        document.getElementById("box").innerHTML="resolution "+
+        screen.width+"x"+screen.height;
+    }
+    function compareNums() {
+        const one=parseInt(document.getElementById("one").value);
+        const two=parseInt(document.getElementById("two").value);
+        const three=parseInt(document.getElementById("three").value);
+        let biggest=one;
+
+        if(biggest<two)
+        {
+            biggest=two;
+        }
+        if(biggest<three)
+        {
+            biggest=three;
+        }
+        document.getElementById("box2").innerHTML="Biggest number is "+biggest;
+    }
+    function check()
+    {
+        const text=document.getElementById("text").value;
+        document.getElementById("box3").innerHTML="Liczba znaków:"+text.length;
+        if(text.length==25)
+        {
+            document.getElementById("text").style.backgroundColor="green";
+            document.getElementById("box4").innerHTML="Jest ok";
+        }
+        else
+            {
+                document.getElementById("text").style.backgroundColor="red";
+                document.getElementById("box4").innerHTML="Zła liczba liter";
+            }
+    }
+
+</script>
+<button onclick="resolution()">Resolution</button>
+<button onclick="sysInfo()">Sys Info</button>
+<div id="box"></div></br>
+<input type="text" id="one"/>
+<input type="text" id="two"/>
+<input type="text" id="three"/>
+<button onclick="compareNums()">Compare</button>
+<div id="box2"></div></br>
+
+
+<textarea id="text" onchange="check()"></textarea>
+<div id="box3">Liczba znaków:</div>
+<div id="box4">Zła liczba liter</div>
+</body>
+</html>
