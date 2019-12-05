@@ -6,6 +6,56 @@
 </head>
 <body>
 <table>
+    <script>
+        function Ukos(){
+            if(document.getElementById('skosna').checked){
+                document.getElementById('dwor').style.display='block';
+            }else{
+                document.getElementById('dwor').style.display='none';
+            }
+        }
+
+        function gog(){
+            if(document.getElementById('dziura').checked){
+                document.getElementById('dziura').style.display='block';
+            }else{
+                document.getElementById('dziura').style.display='none';
+            }
+        }
+
+        function Wymiary(){
+            if(document.getElementById('F1').checked){
+                document.getElementById("PF").style.display='block';
+            }else{
+                document.getElementById('PF').style.display='none';
+            }
+        }
+
+        function fundament(){
+            var x = parseFloat(document.getElementById('x').value);
+            var y = parseFloat(document.getElementById('y').value);
+            var finish1 = x*y;
+            document.getElementById('finish').value=finish1;
+        }
+
+        function tresci(){
+            if(document.getElementById('zapytanie').value.lenght == 500){
+                alert("Maksymalnie 500 znaków");
+            }
+        }
+
+        function validate(){
+            if(document.getElementById('a').value == ''){
+                return false
+            }
+            if(document.getElementById('b').value == ''){
+                return false
+            }
+            if(document.getElementById('c').value == ''){
+                return false
+            }
+        }
+    </script>
 
     <tr>
         <td><input type="text" id="name" placeholder="name"/></td>
