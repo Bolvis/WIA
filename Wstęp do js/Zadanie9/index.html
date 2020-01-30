@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadanie 9</title>
+</head>
+<script>
+    let tab = new Array(20);
+
+    function zmien(table,naco,coile,od,to)
+    {
+        coile=parseInt(coile);
+        od=parseInt(od);
+        to=parseInt(to);
+        for(let i=od;i<to;i+=coile)
+        {
+            if(naco=="r")table[i]=Math.ceil(Math.random()*100);else table[i]=naco;
+            console.log(i);
+        }
+        wypisz(table," ");
+    }
+    function wypisz(table,end)
+    {
+        document.getElementById("one").innerHTML="";
+        for(const element of table){document.getElementById("one").innerHTML+= element+end;}
+    }
+
+
+    function wieksze(table,x) {
+        x=parseInt(x);
+        for(let i=0;i<table.length;i++)
+        {
+            if(table[i]>x) table[i]=0;
+        }
+        wypisz(table," ");
+    }
+
+    function iftyle(table,x,y,z) {
+        x=parseInt(x);
+        y=parseInt(y);
+        z=parseInt(z);
+        for(let i=0;i<table.length;i++)
+        {
+            if(table[i]===x||table[i]===y||table[i]===z) table[i]=0;
+        }
+        wypisz(table," ");
+    }
+
+    function odliczby(table,liczba,boolean)
+    {
+        liczba=parseInt(liczba);
+        let count=0;
+        while(count<table.length)
+        {
+            table[count]=liczba;
+             if(boolean){liczba++;}else {liczba--;}
+             count++;
+        }
+        wypisz(table," ");
+    }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    let tab2 = new Array(20);
+    for (let i = 0;i<tab2.length;i++) tab2[i] = new Array(20);
+
+    function wypisz2(table,end) {
+        document.getElementById("two").innerHTML="";
+        for(let y=0;y<table.length;y++)
+        {
+            for(let x=0;x<table[y].length;x++)
+            {
+                document.getElementById("two").innerHTML+=table[y][x]+end;
+            }
+            document.getElementById("two").innerHTML+="<br>";
+        }
+    }
+
+    function losujC(table,column) {
+        column=parseInt(column);
+        for(let i=0;i<table.length;i++)
+        {
+            table[i][column]=Math.ceil(Math.random()*100);
+        }
+        wypisz2(table," ");
+    }
+    function losujW(table,wiersz) {
+        wiersz=parseInt(wiersz);
+        for(let i=0;i<table[wiersz].length;i++)
+        {
+            table[wiersz][i]=Math.ceil(Math.random()*100);
+        }
+        wypisz2(table," ");
+    }
+
+    function wstaw(table,x,y,number) {
+        x=parseInt(x);
+        y=parseInt(y);
+        number=parseInt(number);
+        table[y][x]=number;
+        wypisz2(table," ");
+    }
+
+    function kopia(table1,table2,boolean) {
+        const length=table2.length;
+        let count=0;
+        if(boolean)table2=table2.reverse();
+        switch(true)
+        {
+            case table2.length>table1.length&&table2.length<(table1.length*table1[0].length):
+                two:
+                for(let y=0;y<table1.length;y++)
+                {
+                    for(let x=0;x<table1[y].length;x++)
+                    {
+                        table1[y][x]=table2[count];
+                        count++;
+                        if(count===length)break two;
+                    }
+                }
+                break;
+
+            case table2.length<=table1.length:
+                for(let i=0;i<table2.length;i++)
+                {
+                    table1[0][i]=table2[i];
+                }
+                break;
+
+            default:
+                alert("Tablica za duża");
+                break;
+        }
+        wypisz2(table1," ");
+    }
+
+
+    function szachownica(table) {
+
+        for(let y=0;y<table.length;y++)
+        {
+            for(let x=0;x<table[y].length;x++)
+            {
+                table[y][x] = (2>y&&11<x)||(17<x&&11>y)||(2<x&&2<=y&&11>x&&11>y)
+                ||(2>=x&&10<y)||(18<=y&&10>=x)||(10<x&&18>x&&10<y&&18>y) ? 0:1;
+            }
+        }
+        wypisz2(table,"");
+    }
+
+    function triangle(table)
+    {
+        let length=0;
+        for(let y=0;y<table.length;y++)
+        {
+            for(let x=0;x<table[y].length;x++)
+            {
+                table[y][x] = x<10-length||x>10+length ? 1:0;
+                if(length>=10) table[y][x]=1;
+            }
+            length++;
+        }
+        wypisz2(table,"");
+    }
+</script>
+<body>
+<h1>Jednowymiarowa</h1>
+<button onclick="zmien(tab,'r',1,0,20)">przypisz</button>
+<button onclick="zmien(tab,0,1,0,20)">wyzeruj</button>
+<button onclick="zmien(tab,0,2,0,20)">wyzeruj co 2</button><br>
+<button onclick="zmien(tab,0,document.getElementById('coile').value,0,20)">co n-ty</button>
+<input id="coile" type="number" value="1"><br>
+<button onclick="zmien(tab,0,1,document.getElementById('x2').value,document.getElementById('y2').value)">od x do y</button>
+<input id="x2" type="number" value="0">
+<input id="y2" type="number" value="0"><br>
+<button onclick="wieksze(tab,document.getElementById('x1').value)">wieksze od x</button>
+<input id="x1" type="number" value="1"><br>
+<button onclick="iftyle(tab,document.getElementById('x').value,document.getElementById('y').value,document.getElementById('z').value)">jeśli tyle</button>
+<input id="x" type="number" value="1">
+<input id="y" type="number" value="1">
+<input id="z" type="number" value="1"><br>
+<button onclick="wypisz(tab,'<br>')">pion</button><br>
+<button onclick="wypisz(tab,document.getElementById('end').value)">przerywaj jak chcesz</button>
+<input id="end" type="text"><br>
+<button onclick="odliczby(tab,document.getElementById('liczba').value,true)">Rosnąco</button>
+<input id="liczba" type="number" value="0">
+<button onclick="odliczby(tab,document.getElementById('liczba').value,false)">Malejąco</button>
+<div id="one"></div>
+<br><br><br>
+
+<h1>Dwuwymiarowa</h1>
+<button onclick="losujC(tab2,document.getElementById('column').value)">Losuj kolumnę</button>
+<input id="column" type="number">
+<button onclick="losujW(tab2,document.getElementById('column').value)">Losuj wiersz</button><br>
+<button onclick="wstaw(tab2,document.getElementById('x3').value,document.getElementById('y3').value,document.getElementById('num').value)">Wstaw coś w</button>
+<input id="x3" type="number" placeholder="x">
+<input id="y3" type="number" placeholder="y">
+<input id="num" type="number" placeholder="number">
+<button onclick="kopia(tab2,tab,false)">Kopjuj</button>
+<button onclick="kopia2(tab2,tab,true)">Kopjuj w drugą stronę</button><br>
+<button onclick="szachownica(tab2)">Szachownica</button>
+<button onclick="triangle(tab2)">Trójkąt</button>
+
+<div id="two"></div>
+</body>
+</html>
