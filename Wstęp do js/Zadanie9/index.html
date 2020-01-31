@@ -101,8 +101,10 @@
 
     function kopia(table1,table2,boolean) {
         const length=table2.length;
+        let tempTable2=new Array(table2.length);
         let count=0;
-        if(boolean)table2=table2.reverse();
+        for(let i=0;i<table2.length;i++){tempTable2[i]=table2[i];}
+        if(boolean)tempTable2.reverse();
         switch(true)
         {
             case table2.length>table1.length&&table2.length<(table1.length*table1[0].length):
@@ -111,17 +113,17 @@
                 {
                     for(let x=0;x<table1[y].length;x++)
                     {
-                        table1[y][x]=table2[count];
+                        table1[y][x]=tempTable2[count];
                         count++;
                         if(count===length)break two;
                     }
                 }
                 break;
 
-            case table2.length<=table1.length:
+            case table2.length<=table1[0].length:
                 for(let i=0;i<table2.length;i++)
                 {
-                    table1[0][i]=table2[i];
+                    table1[0][i]=tempTable2[i];
                 }
                 break;
 
@@ -139,11 +141,11 @@
         {
             for(let x=0;x<table[y].length;x++)
             {
-                table[y][x] = (2>y&&11<x)||(17<x&&11>y)||(2<x&&2<=y&&11>x&&11>y)
-                ||(2>=x&&10<y)||(18<=y&&10>=x)||(10<x&&18>x&&10<y&&18>y) ? 0:1;
+                table[y][x] = (2>y&&11<x)||(17<x&&10>y)||(1<x&&2<=y&&10>x&&10>y)
+                ||(2>x&&9<y)||(18<=y&&10>=x)||(9<x&&18>x&&10<=y&&18>y) ? 0:1;
             }
         }
-        wypisz2(table,"");
+        wypisz2(table,"  ");
     }
 
     function triangle(table)
@@ -158,14 +160,14 @@
             }
             length++;
         }
-        wypisz2(table,"");
+        wypisz2(table," ");
     }
 </script>
 <body>
 <h1>Jednowymiarowa</h1>
-<button onclick="zmien(tab,'r',1,0,20)">przypisz</button>
-<button onclick="zmien(tab,0,1,0,20)">wyzeruj</button>
-<button onclick="zmien(tab,0,2,0,20)">wyzeruj co 2</button><br>
+<button onclick="zmien(tab,'r',1,0,tab.length)">przypisz</button>
+<button onclick="zmien(tab,0,1,0,tab.length)">wyzeruj</button>
+<button onclick="zmien(tab,0,2,0,tab.length)">wyzeruj co 2</button><br>
 <button onclick="zmien(tab,0,document.getElementById('coile').value,0,20)">co n-ty</button>
 <input id="coile" type="number" value="1"><br>
 <button onclick="zmien(tab,0,1,document.getElementById('x2').value,document.getElementById('y2').value)">od x do y</button>
@@ -194,8 +196,8 @@
 <input id="x3" type="number" placeholder="x">
 <input id="y3" type="number" placeholder="y">
 <input id="num" type="number" placeholder="number">
-<button onclick="kopia(tab2,tab,false)">Kopjuj</button>
-<button onclick="kopia2(tab2,tab,true)">Kopjuj w drugą stronę</button><br>
+<button onclick="kopia(tab2,tab,false)">Copy</button>
+<button onclick="kopia(tab2,tab,true)">Copy w drugą stronę</button><br>
 <button onclick="szachownica(tab2)">Szachownica</button>
 <button onclick="triangle(tab2)">Trójkąt</button>
 

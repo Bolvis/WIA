@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>ogłoszenia</title>
+</head>
+<body>
+<header id="header"><h1>ogłoszenia drobne</h1></header>
+
+<div>
+    <div class="numery">
+        <h3>telefon</h3>
+        <p>601601601</p>
+    </div>
+    <div class="numery">
+        <h3>e-mail</h3>
+        <p>ogloszenia@poczta.pl</p>
+    </div>
+    <div class="numery">
+        <h3>Adres</h3>
+        <p>ul. Morska 45 Gdynia</p>
+    </div>
+    <div class="numery">
+        <img src="logo.png">
+    </div>
+</div>
+<div class="trzeci" id="lewy">
+    <h2>Cena</h2><br>
+    <table id="tabela">
+        <tr>
+            <td>ile?</td>
+            <td>Koszt</td>
+            <td>Upust</td>
+        </tr>
+        <tr>
+            <td>1 - 40</td>
+            <td>3 PLN</td>
+            <td rowspan="2">0,30 PLN dla stałych klientów</td>
+        </tr>
+        <tr>
+            <td>41 i więcej</td>
+            <td>2 PLN</td>
+
+        </tr>
+    </table>
+</div>
+<div class="srodkowy">
+    <h2>Policz koszt ogłoszenia</h2><br>
+    Liczba ogłoszeń: <br>
+    <input type="number" name="liczba" id="liczba"><br>
+    <input type="checkbox" name="check" id="check" >Jestem stalym klientem <br>
+    <script>
+        function kalkulacja(){
+            let liczba=document.getElementById("liczba").value;
+            let liczba1=parseInt(liczba);
+            let stan=document.getElementById("check").checked;
+            let wynik;
+            if(liczba<=40){
+                wynik= liczba1*3;
+            }else{
+                wynik=liczba1*2;
+            }
+            wynik=parseInt(wynik);
+            if(stan===true){
+                wynik-=liczba*0.3;
+            }
+            document.getElementById("wynik").innerHTML=wynik+"PLN";
+        }
+    </script>
+    <button onclick="kalkulacja()" id="przycisk">Kalkulacja</button>
+    <div id="wynik"></div>
+</div>
+<div class="trzeci" id="prawy">
+    <h2>Znajdujesz się na stronie portalu ogłoszeniowego</h2><br>
+    <img src="grafika.png" alt="Oblicz koszt ogłoszenia">
+</div>
+<style>
+    #header{
+        background-color: #993333;
+        color: white;
+        text-align: center;
+        height: 80px;
+    }
+    .numery{
+        font-family:Tahoma;
+        background-color: #CC6666;
+        color: white;
+        text-align: center;
+        width: 25%;
+        height: 150px;
+        float: left;
+    }
+    .trzeci{
+        background-color: #CC9999;
+        width: 40%;
+        height: 550px;
+        text-align: center;
+        float: left;
+    }
+    .srodkowy{
+        background-color: #FFCCCC;
+        width: 20%;
+        height: 550px;
+        float: left;
+    }
+    .footer{
+        background-color: #993333;
+        color: white;
+        text-align: right;
+    }
+    #przycisk{
+        padding: 20px;
+        background-color: red;
+        color: white;
+
+    }
+    #tabela{
+        border: 1px dotted red;
+        text-align: center;
+        width: 100%;
+    }
+</style>
+<footer class="footer">Portal ogłoszeniowy opracował: Dawid Stasiak</footer>
+</body>
+</html>
